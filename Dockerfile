@@ -6,4 +6,6 @@ RUN apk add --update python3 \
 && apk add --update alpine-sdk \
 && rm /var/cache/apk/*
 
+RUN pip3 install uvloop
+
 CMD ["helm"]
