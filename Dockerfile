@@ -1,6 +1,6 @@
 FROM python:3.7
 
-ENV K8S_VERSION=1.10.3
+ENV K8S_VERSION=v1.10.3
 ENV HELM_FILENAME=helm-v2.12.3-linux-amd64.tar.gz
 
 
