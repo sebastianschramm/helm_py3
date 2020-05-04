@@ -1,10 +1,16 @@
-FROM lwolf/helm-kubectl-docker:v1.13.6-v2.13.1
-    
-RUN apk add --update python3 \
-&& apk add --update git \
-&& apk add --update --virtual build-deps gcc python3-dev musl-dev \
-&& apk add --update alpine-sdk \
-&& rm /var/cache/apk/*
+FROM python:3.7
+
+ENV K8S_VERSION=1.10.3
+ENV HELM_FILENAME=helm-v2.12.3-linux-amd64.tar.gz
+
+
+RUN apt -y update \
+  && apt -y install ca-certificates \ 
+  && apt -y install curl build-essential  \
+  && apt -y install gettext tar gzip \
+  && curl -L https://storage.googleapis.com/kubernetes-release/release/${K8S_VERSION}/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl \
+  && curl -L https://get.helm.sh/${HELM_FILENAME} | tar xz && mv linux-amd64/helm /bin/helm && rm -rf linux-amd64 \
+  && chmod +x /usr/local/bin/kubectl 
 
 RUN pip3 install uvloop
 
