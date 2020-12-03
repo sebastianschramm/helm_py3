@@ -1,4 +1,4 @@
-FROM lwolf/helm-kubectl-docker:v1.13.6-v2.13.1
+FROM lwolf/helm-kubectl-docker:v1.18.12-v3.4.1
     
 RUN apk add --update python3 \
 && apk add --update git \
