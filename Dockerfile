@@ -1,7 +1,7 @@
 FROM python:3.7
 
-ENV K8S_VERSION=v1.10.3
-ENV HELM_FILENAME=helm-v2.12.3-linux-amd64.tar.gz
+ENV K8S_VERSION=v1.18.12
+ENV HELM_FILENAME=helm-v3.4.1-linux-amd64.tar.gz
 
 
 RUN apt -y update \
